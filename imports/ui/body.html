@@ -1,0 +1,26 @@
+<body>
+	<div class="container">
+		<header>
+			<h1>Tasks({{imcomplete}})</h1>
+			<label class="hide-completed">
+				<input type="checkbox">
+				Hide Completed Tasks
+			</label>
+			<form class="new-task">
+				<input type="text" name="text" placeholder="Type to add tasks">
+			</form>
+		</header>
+		<ul>
+			{{#each tasks}}
+				{{> task}}
+			{{/each}}
+		</ul>
+	</div>
+</body>
+<template name="task">
+	<li class="{{#if checked}}checked{{/if}}">
+		<button class="delete">&times;</button>
+		<input type="checkbox" checked="{{checked}}" class="toggle-checked">
+		<span class="text">{{text}}</span>
+	</li>
+</template>
